@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <h1><i class="fal fa-mountains"></i> skiride</h1>
+
+
+  <h2>Login with your <img src="../assets/images/epicmix-logo.jpg" alt="skiride-epicmix-logo" class="epicmix-logo"> account</h2>
+
+  <form (ngSubmit)="login()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [formControl]="loginForm.controls['username']">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [formControl]="loginForm.controls['password']">
+    </mat-form-field>
+
+    <h3 *ngIf="response['status']">
+      {{ response['status'] }}
+      <ng-container *ngIf="response['reason']">: {{ response['reason'] }}</ng-container>
+    </h3>
+
+    <button mat-flat-button color="primary" [disabled]="loginForm.invalid || loading">
+      <ng-container *ngIf="!loading">Login With <img src="../assets/images/epicmix-logo.jpg" alt="skiride-epicmix-logo" class="epicmix-logo"></ng-container>
+      <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
+    </button>
+  </form>
+
+  <div *ngIf="mountainData['ProfileStats']" class="stats">
+    <h2>This Season</h2>
+    <h1>{{ mountainData['ProfileStats'].VerticalFeet }}</h1>
+    <h4>Vertical</h4>
+    <h1>{{ mountainData['ProfileStats'].Lifts }}</h1>
+    <h4>Days</h4>
+    <h1>{{ mountainData['ProfileStats'].DaysOnMountain }}</h1>
+    <h4>Lifts</h4>
+    <h1>{{ mountainData['ProfileStats'].MountainsVisited }}</h1>
+    <h4>Mountains</h4>
+  </div>
+</div>
