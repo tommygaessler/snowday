@@ -25,16 +25,4 @@
       <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
     </button>
   </form>
-
-  <div *ngIf="mountainData['ProfileStats']" class="stats">
-    <h2>This Season</h2>
-    <h1>{{ mountainData['ProfileStats'].VerticalFeet }}</h1>
-    <h4>Vertical</h4>
-    <h1>{{ mountainData['ProfileStats'].Lifts }}</h1>
-    <h4>Days</h4>
-    <h1>{{ mountainData['ProfileStats'].DaysOnMountain }}</h1>
-    <h4>Lifts</h4>
-    <h1>{{ mountainData['ProfileStats'].MountainsVisited }}</h1>
-    <h4>Mountains</h4>
-  </div>
 </div>

@@ -1,7 +1,9 @@
 <header>
   <a [routerLink]="['/']" mat-flat-button ><i class="fal fa-mountains"></i> SKIRIDE</a>
   <nav>
-    <a [routerLink]="['/login']" mat-flat-button color="primary">LOGIN</a>
+    <a [routerLink]="['/login']" mat-flat-button color="primary" *ngIf="!authService.getCookie()">LOGIN</a>
+    <a [routerLink]="['/dashboard']" mat-flat-button color="primary" *ngIf="authService.getCookie()">DASHBOARD</a>
+    <a [routerLink]="['/logout']" mat-flat-button color="primary" *ngIf="authService.getCookie()">LOGOUT</a>
   </nav>
 </header>
 <router-outlet></router-outlet>

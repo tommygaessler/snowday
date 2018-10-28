@@ -1,0 +1,38 @@
+<i class="fal fa-snowflake fa-spin" *ngIf="!mountainData || !profileData"></i>
+
+<div *ngIf="mountainData && profileData" class="wrapper">
+
+  <h2>This Season</h2>
+
+  <div class="row season">
+    <div class="column1">
+      <h1>{{ mountainData['ProfileStats'].VerticalFeet }}</h1>
+      <h4>Vertical</h4>
+    </div>
+    <div class="column1">
+      <h1>{{ mountainData['ProfileStats'].Lifts }}</h1>
+      <h4>Days</h4>
+    </div>
+    <div class="column1">
+      <h1>{{ mountainData['ProfileStats'].DaysOnMountain }}</h1>
+      <h4>Lifts</h4>
+    </div>
+    <div class="column1">
+      <h1>{{ mountainData['ProfileStats'].MountainsVisited }}</h1>
+      <h4>Mountains</h4>
+    </div>
+  </div>
+
+  <div class="row profile">
+    <div class="column1">
+      <img src="http://epicmix.com/{{ profileData.ProfileImage }}" alt="" class="profile-picture">
+    </div>
+    <div class="column2">
+      <h1>Welcome {{ profileData.Name }}</h1>
+
+      <img src="http://epicmix.com/{{ profileData.MostVisitedResortIcon }}" alt="">
+      <h3>Most Visited Mountain</h3>
+    </div>
+  </div>
+
+</div>

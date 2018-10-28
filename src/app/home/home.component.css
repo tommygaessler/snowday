@@ -1,5 +1,8 @@
 .background-image {
-  background-image: url('../../assets/images/skiride.com-home-background-image.jpg');
+  background:linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ), url('../../assets/images/skiride-homepage-image.jpg');
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,12 +10,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  color: white;
 }
 
 .background-image h1 {
-  color: white;
-  font-size: 70px;
+  font-size: 50px;
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
+}
+
+.background-image p {
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }

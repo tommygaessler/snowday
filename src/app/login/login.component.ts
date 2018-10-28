@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   mountainData: object = {};
   loginForm: FormGroup;
 
-  constructor(fb: FormBuilder, public http: HttpClient) {
+  constructor(fb: FormBuilder, public http: HttpClient, public router: Router, public authService: AuthService) {
     this.loginForm = fb.group({
       'username': [null, Validators.required],
       'password': [null, Validators.required]
@@ -26,7 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.mountainData = {};
     this.loading = true;
     this.http.post('https://ujj9l4tjj6.execute-api.us-east-1.amazonaws.com/prod/snowflakeLogin', {
       username: this.loginForm.value.username,
@@ -35,7 +36,10 @@ export class LoginComponent implements OnInit {
     }).toPromise().then((data: any) => {
       this.response = JSON.parse(data.body)['response'];
       if(this.response['session_cookie']) {
-        this.getData(this.response['session_cookie']);
+
+        this.authService.setCookie(this.response['session_cookie']);
+
+        this.router.navigate(['/dashboard']);
       } else {
         this.loading = false;
       }
@@ -45,18 +49,4 @@ export class LoginComponent implements OnInit {
       console.log(error)
     })
   }
-
-  getData(cookie) {
-    this.http.post('https://ujj9l4tjj6.execute-api.us-east-1.amazonaws.com/prod/snowflakeData', {
-      'cookie': cookie
-    }).toPromise().then((data: any) => {
-      this.mountainData = JSON.parse(data.body);
-      this.loading = false;
-    }).catch((error) => {
-      this.loading = false;
-      this.response['status'] = 'Server Error, Contact 303-565-0001';
-      console.log(error)
-    })
-  }
-
 }

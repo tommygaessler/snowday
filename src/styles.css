@@ -1,4 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
 
 body, h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -8,10 +13,28 @@ body, h1, h2, h3, h4, h5, h6 {
   width: 70%;
   display: block;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 
 mat-form-field, button {
   width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.column1 {
+  flex: 1;
+}
+
+.column2 {
+  flex: 2;
+}
+
+@media (max-width: 800px) {
+  .row {
+    display: block;
+  }
 }
