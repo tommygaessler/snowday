@@ -13,7 +13,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -41,6 +42,7 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSnackBarModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

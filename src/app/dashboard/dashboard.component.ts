@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ export class DashboardComponent implements OnInit {
   mountainData: object;
   profileData: object;
 
-  constructor(public http: HttpClient, public authService: AuthService) { }
+  constructor(public http: HttpClient, public authService: AuthService, public router: Router, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getData();
@@ -27,7 +29,16 @@ export class DashboardComponent implements OnInit {
       'cookie': this.authService.getCookie()
     }).toPromise().then((data: any) => {
 
-      this.mountainData = JSON.parse(data.body)
+      if(data.body.indexOf('DOCTYPE') >= 0) {
+        this.authService.removeCookie();
+        this.snackBar.open('Session Expired', 'Login Again', {
+          duration: 5000,
+        });
+        this.router.navigate(['/']);
+      } else {
+        this.mountainData = JSON.parse(data.body)
+      }
+
     }).catch((error) => {
       console.log(error)
     })
@@ -36,13 +47,21 @@ export class DashboardComponent implements OnInit {
       'cookie': this.authService.getCookie()
     }).toPromise().then((data: any) => {
 
-      this.profileData = JSON.parse(data.body)['List'].filter((profile) => {
-        return profile.IsUser
-      });
+      if(data.body.indexOf('DOCTYPE') >= 0) {
+        this.authService.removeCookie();
+        this.snackBar.open('Session Expired', 'Login Again', {
+          duration: 5000,
+        });
+        this.router.navigate(['/']);
+      } else {
+        this.profileData = JSON.parse(data.body)['List'].filter((profile) => {
+          return profile.IsUser
+        });
+
+        this.profileData = this.profileData[0];
+      }
 
       // save profile ID in database,
-
-      this.profileData = this.profileData[0];
       // console.log(this.profileData)
     }).catch((error) => {
       console.log(error)
