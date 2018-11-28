@@ -11,10 +11,29 @@ header {
   padding: 20px;
 }
 
-header a {
-  /* font-size: 30px; */
-}
-
 header nav a {
   margin-left: 10px;
+}
+
+button {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  nav a {
+    display: none;
+  }
+
+  mat-sidenav {
+    padding: 20px;
+  }
+
+  mat-sidenav a {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  button {
+    display: block;
+  }
 }

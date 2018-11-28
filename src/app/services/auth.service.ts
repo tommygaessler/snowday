@@ -5,7 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+  profile: any;
+
   constructor() { }
+
+  // change this
+  setProfile(profile: any) {
+    this.profile = profile;
+  }
+
+  getProfile() {
+    return this.profile;
+  }
+
 
   setCookie(cookie) {
     localStorage.setItem('cookie', cookie);

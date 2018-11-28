@@ -1,0 +1,107 @@
+<div class="wrapper">
+  <h1 class="text-center">2018 - 2019 Season</h1>
+  <small class="text-center">Ranked by <select disabled>
+    <option>Vertical</option>
+    <option>Days</option>
+    <option>Lifts</option>
+    <option>Mountains</option>
+  </select></small>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="PLAYERS">
+      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="VerticalFeet" matSortDirection="asc">
+
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>rank</th>
+          <td mat-cell *matCellDef="let player; let i = index;">
+            {{ i+1 }}
+          </td>
+        </ng-container>
+
+        <!-- link to epic mix profile -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef>name</th>
+          <td mat-cell *matCellDef="let player">
+            <img src="https://www.epicmix.com/{{player.ProfileImage}}" alt=""> {{player.Name}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="VerticalFeet">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>vertical</th>
+          <td mat-cell *matCellDef="let player"> {{player.VerticalFeet}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DaysOnMountain">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>days</th>
+          <td mat-cell *matCellDef="let player"> {{player.DaysOnMountain}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Lifts">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>lifts</th>
+          <td mat-cell *matCellDef="let player"> {{player.Lifts}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="MountainsVisited">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>mountains</th>
+          <td mat-cell *matCellDef="let player"> {{player.MountainsVisited}} </td>
+        </ng-container>
+
+        <!-- link to pools -->
+        <ng-container matColumnDef="Pools">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>pools</th>
+          <td mat-cell *matCellDef="let player"> {{player.Pools}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="playerDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: playerDisplayedColumns;"></tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="POOLS" disabled>
+      <table mat-table [dataSource]="poolDataSource" matSort>
+
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>rank</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.rank}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>name</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="pool">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>pool</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.pool | currency:'USD':'symbol' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="vertical">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>vertical</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.vertical}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="days">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>days</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.days}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lifts">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>lifts</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.lifts}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mountains">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>mountains</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.mountains}} </td>
+        </ng-container>
+
+        <!-- link to players -->
+        <ng-container matColumnDef="players">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>players</th>
+          <td mat-cell *matCellDef="let pool"> {{pool.players}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="poolDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: poolDisplayedColumns;"></tr>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

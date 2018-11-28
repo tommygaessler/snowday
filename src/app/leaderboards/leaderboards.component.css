@@ -1,0 +1,10 @@
+td img {
+  border-radius: 50%;
+  height: 30px;
+  vertical-align: middle;
+}
+
+small {
+  display: block;
+  margin-top: 10px;
+}

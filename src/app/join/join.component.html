@@ -1,0 +1,15 @@
+<!-- <i class="fal fa-snowflake fa-spin"></i> -->
+
+<div class="wrapper">
+
+  <h2>Join Pool</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Search Pool Name</mat-label>
+    <input matInput>
+    <mat-hint>If you don't know the name, request an invite from your pool creator</mat-hint>
+  </mat-form-field>
+
+  <button (click)="join()" mat-flat-button color="primary" [disabled]="true">Join Pool</button>
+
+</div>

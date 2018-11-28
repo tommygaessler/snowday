@@ -15,10 +15,7 @@
       <input matInput type="password" [formControl]="loginForm.controls['password']">
     </mat-form-field>
 
-    <h3 *ngIf="response['status']">
-      {{ response['status'] }}
-      <ng-container *ngIf="response['reason']">: {{ response['reason'] }}</ng-container>
-    </h3>
+    <h3 *ngIf="error">{{ error }}</h3>
 
     <button mat-flat-button color="primary" [disabled]="loginForm.invalid || loading">
       <ng-container *ngIf="!loading">Login With <img src="../assets/images/epicmix-logo.jpg" alt="skiride-epicmix-logo" class="epicmix-logo"></ng-container>

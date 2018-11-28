@@ -13,7 +13,8 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.authService.removeCookie();
+      // this.authService.removeCookie();
+      this.authService.setProfile(null)
       this.router.navigate(['/']);
     })
   }

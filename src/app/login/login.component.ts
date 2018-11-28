@@ -12,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loading: boolean = false;
-  response: object = {};
+  error: string;
   mountainData: object = {};
   loginForm: FormGroup;
 
@@ -28,24 +28,27 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.error = null;
     this.loading = true;
-    this.http.post('https://ujj9l4tjj6.execute-api.us-east-1.amazonaws.com/prod/snowflakeLogin', {
+    this.http.post('https://cdbiahura2.execute-api.us-west-1.amazonaws.com/prod/login', {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
       remember: false
     }).toPromise().then((data: any) => {
-      this.response = JSON.parse(data.body)['response'];
-      if(this.response['session_cookie']) {
+      console.log(data)
 
-        this.authService.setCookie(this.response['session_cookie']);
-
+      if(data.statusCode === 200) {
+        // figure out how to handle sessions
+        // this.authService.setCookie(this.response['session_cookie']);
+        this.authService.setProfile(data.body);
         this.router.navigate(['/dashboard']);
       } else {
         this.loading = false;
+        this.error = data.body.reason;
       }
     }).catch((error) => {
       this.loading = false;
-      this.response['status'] = 'Server Error, Contact 303-565-0001';
+      this.error = 'Server Error, Contact 303-565-0001';
       console.log(error)
     })
   }

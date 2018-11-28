@@ -14,12 +14,19 @@ import {
   MatInputModule,
   MatIconModule,
   MatButtonModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTableModule,
+  MatSortModule,
+  MatSidenavModule,
+  MatTabsModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
+import { CreateComponent } from './create/create.component';
+import { JoinComponent } from './join/join.component';
+import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 
 
 
@@ -30,7 +37,10 @@ import { LogoutComponent } from './logout/logout.component';
     HomeComponent,
     LoginComponent,
     DashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    CreateComponent,
+    JoinComponent,
+    LeaderboardsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +53,10 @@ import { LogoutComponent } from './logout/logout.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatSidenavModule,
+    MatTabsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

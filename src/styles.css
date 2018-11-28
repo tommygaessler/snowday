@@ -17,8 +17,12 @@ body, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 50px;
 }
 
-mat-form-field, button {
+mat-form-field, button:not(.mat-sort-header-button):not(.mat-icon-button), table {
   width: 100%;
+}
+
+.mat-drawer-container {
+  background-color: white;
 }
 
 .row {
@@ -31,6 +35,18 @@ mat-form-field, button {
 
 .column2 {
   flex: 2;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
 }
 
 @media (max-width: 800px) {

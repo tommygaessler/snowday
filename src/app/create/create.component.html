@@ -1,0 +1,31 @@
+<!-- <i class="fal fa-snowflake fa-spin"></i> -->
+
+<div class="wrapper">
+
+  <h2>Create Pool</h2>
+
+  <form (ngOnSubmit)="buyin()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Pool Name</mat-label>
+      <input matInput placeholder="My Work Pool" [formControl]="createPoolForm.controls['name']">
+      <mat-hint>Name will be public and must be unique</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Pool Buy In</mat-label>
+      <input matInput placeholder="5" [formControl]="createPoolForm.controls['buyin']">
+      <mat-hint>Amount everyone invited adds to the pool</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Invite Members</mat-label>
+      <input matInput placeholder="tommy@skiride.com">
+      <mat-hint>More Members = More Winnings (you can invite them later)</mat-hint>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="createPoolForm.invalid || createPoolForm.value.buyin == 0">Create Pool <ng-container *ngIf="createPoolForm.value.buyin > 0">and Add {{ createPoolForm.value.buyin | currency:'USD':'symbol' }}</ng-container></button>
+
+  </form>
+
+</div>
