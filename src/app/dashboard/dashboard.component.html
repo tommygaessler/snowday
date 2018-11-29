@@ -11,15 +11,15 @@
     </div>
     <div class="column1">
       <h1>{{ profile.DaysOnMountain }}</h1>
-      <h4>Days</h4>
+      <h4>Day<ng-container *ngIf="profile.DaysOnMountain !== 1">s</ng-container></h4>
     </div>
     <div class="column1">
       <h1>{{ profile.Lifts }}</h1>
-      <h4>Lifts</h4>
+      <h4>Lift<ng-container *ngIf="profile.Lifts !== 1">s</ng-container></h4>
     </div>
     <div class="column1">
       <h1>{{ profile.MountainsVisited }}</h1>
-      <h4>Mountains</h4>
+      <h4>Mountain<ng-container *ngIf="profile.MountainsVisited !== 1">s</ng-container></h4>
     </div>
   </div>
 
@@ -60,7 +60,7 @@
 
   <div class="row profile">
     <div class="column1">
-      <img src="http://epicmix.com/{{ profile.ProfileImage }}" alt="" class="profile-picture">
+      <img src="https://epicmix.com/{{ profile.ProfileImage }}" alt="" class="profile-picture" *ngIf="profile.ProfileImage">
     </div>
     <div class="column2">
       <h1>Welcome {{ profile.Name }}</h1>
