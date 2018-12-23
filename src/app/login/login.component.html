@@ -6,13 +6,14 @@
 
   <form (ngSubmit)="login()">
     <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
+      <mat-label>Email or Username</mat-label>
       <input matInput [formControl]="loginForm.controls['username']">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
       <input matInput type="password" [formControl]="loginForm.controls['password']">
+      <mat-hint>We never store your login credentials.</mat-hint>
     </mat-form-field>
 
     <h3 *ngIf="error">{{ error }}</h3>
@@ -21,5 +22,13 @@
       <ng-container *ngIf="!loading">Login With <img src="../assets/images/epicmix-logo.jpg" alt="skiride-epicmix-logo" class="epicmix-logo"></ng-container>
       <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
     </button>
+
+    <!-- <div class="info-links">
+      <a href="#">By clicking login you agree to our terms and conditions.</a>
+    </div> -->
+    <div class="info-links">
+      <a href="https://www.epicmix.com/Welcome.aspx?view=login" target="_blank">Don't know your account credentials?</a>
+    </div>
+
   </form>
 </div>

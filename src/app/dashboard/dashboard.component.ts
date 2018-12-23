@@ -69,7 +69,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getData() {
-    this.profile = this.authService.getProfile();
+    if(this.authService.getProfile()) {
+      this.profile = this.authService.getProfile();
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 
   logout() {

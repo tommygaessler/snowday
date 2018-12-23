@@ -3,8 +3,25 @@
   margin-bottom: 50px;
 }
 
-.profile-picture {
+.ProfileImage {
   border-radius: 50%;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.pools-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pools-action a {
+  margin-left: 10px;
+}
+
+h2.text-center {
+  margin-bottom: 20px;
 }
 
 .fa-snowflake.fa-spin {
@@ -39,4 +56,10 @@ tr.pool-row:not(.pool-expanded-row):active {
 
 .pool-description {
   padding: 16px;
+}
+
+@media (max-width: 800px) {
+  h2 {
+    margin-top: 40px;
+  }
 }

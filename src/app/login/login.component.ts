@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(fb: FormBuilder, public http: HttpClient, public router: Router, public authService: AuthService) {
     this.loginForm = fb.group({
-      'username': [null, Validators.required],
-      'password': [null, Validators.required]
+      'username': ['', Validators.required],
+      'password': ['', Validators.required]
     });
   }
 
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       if(data.statusCode === 200) {
         // figure out how to handle sessions
         // this.authService.setCookie(this.response['session_cookie']);
+        // put profileId in session, how secure is this?
         this.authService.setProfile(data.body);
         this.router.navigate(['/dashboard']);
       } else {

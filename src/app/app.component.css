@@ -15,12 +15,12 @@ header nav a {
   margin-left: 10px;
 }
 
-button {
+button, a.login {
   display: none;
 }
 
 @media (max-width: 800px) {
-  nav a {
+  nav a:not(.login) {
     display: none;
   }
 
@@ -34,6 +34,10 @@ button {
   }
 
   button {
-    display: block;
+    display: inline;
+  }
+
+  nav a.login {
+    display: inline-block;
   }
 }

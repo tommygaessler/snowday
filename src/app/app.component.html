@@ -3,11 +3,9 @@
   <a [routerLink]="['/']" mat-flat-button ><i class="fal fa-mountains"></i> SKIRIDE</a>
   <nav>
     <a [routerLink]="['/dashboard']" mat-flat-button color="primary" *ngIf="authService.getProfile()">DASHBOARD</a>
-    <!-- <a [routerLink]="['/create']" mat-flat-button color="primary" *ngIf="authService.getCookie() && router.url !== '/'">CREATE POOL</a>
-    <a [routerLink]="['/join']" mat-flat-button color="primary" *ngIf="authService.getCookie() && router.url !== '/'">JOIN POOL</a> -->
-    <a [routerLink]="['/login']" mat-flat-button color="primary" *ngIf="!authService.getProfile()">LOGIN</a>
+    <a [routerLink]="['/login']" mat-flat-button color="primary" *ngIf="!authService.getProfile()" class="login">LOGIN</a>
     <a [routerLink]="['/leaderboards']" mat-flat-button color="primary">LEADERBOARDS</a>
-    <a [routerLink]="['/logout']" mat-flat-button color="primary" *ngIf="authService.getProfile() && router.url === '/dashboard'">LOGOUT</a>
+    <a [routerLink]="['/logout']" mat-flat-button color="primary" *ngIf="authService.getProfile()">LOGOUT</a>
 
     <button mat-icon-button (click)="sidenav.open()">
       <i class="fal fa-bars" [style.color]="router.url !== '/' ? 'black' : 'white'"></i>
@@ -17,11 +15,9 @@
 
 <mat-sidenav #sidenav position="end">
   <a mat-flat-button color="primary" [routerLink]="['/dashboard']" (click)="sidenav.close()" *ngIf="authService.getProfile()">DASHBOARD</a>
-  <!-- <a mat-flat-button color="primary" [routerLink]="['/create']" (click)="sidenav.close()" *ngIf="authService.getCookie() && router.url !== '/'">CREATE POOL</a>
-  <a mat-flat-button color="primary" [routerLink]="['/join']" (click)="sidenav.close()" *ngIf="authService.getCookie() && router.url !== '/'">JOIN POOL</a> -->
-  <a mat-flat-button color="primary" [routerLink]="['/login']" (click)="sidenav.close()" *ngIf="!authService.getProfile()">LOGIN</a>
+  <!-- <a mat-flat-button color="primary" [routerLink]="['/login']" (click)="sidenav.close()" *ngIf="!authService.getProfile()">LOGIN</a> -->
   <a mat-flat-button color="primary" [routerLink]="['/leaderboards']" (click)="sidenav.close()">LEADERBOARDS</a>
-  <a mat-flat-button color="primary" [routerLink]="['/logout']" (click)="sidenav.close()" *ngIf="authService.getProfile() && router.url === '/dashboard'">LOGOUT</a>
+  <a mat-flat-button color="primary" [routerLink]="['/logout']" (click)="sidenav.close()" *ngIf="authService.getProfile()">LOGOUT</a>
 </mat-sidenav>
 
 <router-outlet></router-outlet>

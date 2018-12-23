@@ -13,12 +13,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'leaderboards', component: LeaderboardsComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'create', component: CreateComponent,
-    canActivate: [AuthGuardService]
-  },
-  { path: 'join', component: JoinComponent,
-    canActivate: [AuthGuardService]
-  },
+  { path: 'create', component: CreateComponent },
+  { path: 'join', component: JoinComponent },
   { path: 'logout', component: LogoutComponent },
   { path: '**', redirectTo: '' }
 ];

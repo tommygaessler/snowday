@@ -1,53 +1,54 @@
 <div class="wrapper">
   <h1 class="text-center">2018 - 2019 Season</h1>
-  <small class="text-center">Ranked by <select disabled>
-    <option>Vertical</option>
-    <option>Days</option>
-    <option>Lifts</option>
-    <option>Mountains</option>
+  <small class="text-center">Ranked by: <select [(ngModel)]="rankedBy" (change)="rankChange()">
+    <option value="VerticalFeet">Vertical</option>
+    <option value="DaysOnMountain">Days</option>
+    <option value="Lifts">Lifts</option>
+    <option value="MountainsVisited">Mountains</option>
   </select></small>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="PLAYERS">
-      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="VerticalFeet" matSortDirection="desc">
+      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="{{rankedBy}}" matSortDirection="desc">
 
         <ng-container matColumnDef="rank">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>rank</th>
+          <th mat-header-cell *matHeaderCellDef>rank</th>
           <td mat-cell *matCellDef="let player; let i = index;">
             {{ i+1 }}
           </td>
         </ng-container>
 
-        <!-- link to epic mix profile -->
         <ng-container matColumnDef="Name">
           <th mat-header-cell *matHeaderCellDef>name</th>
           <td mat-cell *matCellDef="let player">
-            <img src="https://www.epicmix.com/{{player.ProfileImage}}" alt=""> {{player.Name}}
+            <a href="https://www.epicmix.com/user-profile.aspx?ProfileId={{player.ProfileId}}" target="_blank">
+              <img src="https://www.epicmix.com/{{player.ProfileImage}}" alt="">{{player.Name}}
+            </a>
           </td>
         </ng-container>
 
         <ng-container matColumnDef="VerticalFeet">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>vertical</th>
+          <th mat-header-cell *matHeaderCellDef>vertical</th>
           <td mat-cell *matCellDef="let player"> {{player.VerticalFeet}} </td>
         </ng-container>
 
         <ng-container matColumnDef="DaysOnMountain">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>days</th>
+          <th mat-header-cell *matHeaderCellDef>days</th>
           <td mat-cell *matCellDef="let player"> {{player.DaysOnMountain}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Lifts">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>lifts</th>
+          <th mat-header-cell *matHeaderCellDef>lifts</th>
           <td mat-cell *matCellDef="let player"> {{player.Lifts}} </td>
         </ng-container>
 
         <ng-container matColumnDef="MountainsVisited">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>mountains</th>
+          <th mat-header-cell *matHeaderCellDef>mountains</th>
           <td mat-cell *matCellDef="let player"> {{player.MountainsVisited}} </td>
         </ng-container>
 
         <!-- link to pools -->
         <ng-container matColumnDef="Pools">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>pools</th>
+          <th mat-header-cell *matHeaderCellDef>pools</th>
           <td mat-cell *matCellDef="let player"> {{player.Pools}} </td>
         </ng-container>
 

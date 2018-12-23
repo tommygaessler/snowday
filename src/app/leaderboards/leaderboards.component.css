@@ -1,10 +1,19 @@
+h1 {
+  margin-bottom: 20px;
+}
+
 td img {
   border-radius: 50%;
   height: 30px;
   vertical-align: middle;
+  margin-right: 10px;
 }
 
 small {
   display: block;
   margin-top: 10px;
+}
+
+td a {
+  color: black;
 }

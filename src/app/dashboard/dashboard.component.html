@@ -2,32 +2,49 @@
 
 <div *ngIf="profile" class="wrapper">
 
-  <h2>This Season</h2>
+  <div class="row">
+    <div class="column1">
+      <h2 class="text-center">Welcome</h2>
+      <h1 class="text-center"><img src="https://epicmix.com/{{ profile.ProfileImage }}" alt="" class="ProfileImage" *ngIf="profile.ProfileImage"> {{ profile.Name }}</h1>
+    </div>
+    <div class="column1">
+      <h2 class="text-center">Your Season</h2>
 
-  <div class="row season">
-    <div class="column1">
-      <h1>{{ profile.VerticalFeet }}</h1>
-      <h4>Vertical</h4>
-    </div>
-    <div class="column1">
-      <h1>{{ profile.DaysOnMountain }}</h1>
-      <h4>Day<ng-container *ngIf="profile.DaysOnMountain !== 1">s</ng-container></h4>
-    </div>
-    <div class="column1">
-      <h1>{{ profile.Lifts }}</h1>
-      <h4>Lift<ng-container *ngIf="profile.Lifts !== 1">s</ng-container></h4>
-    </div>
-    <div class="column1">
-      <h1>{{ profile.MountainsVisited }}</h1>
-      <h4>Mountain<ng-container *ngIf="profile.MountainsVisited !== 1">s</ng-container></h4>
+      <div class="row season">
+        <div class="column1">
+          <h1>{{ profile.VerticalFeet }}</h1>
+          <h4>Vertical</h4>
+        </div>
+        <div class="column1">
+          <h1>{{ profile.DaysOnMountain }}</h1>
+          <h4>Day<ng-container *ngIf="profile.DaysOnMountain !== 1">s</ng-container></h4>
+        </div>
+        <div class="column1">
+          <h1>{{ profile.Lifts }}</h1>
+          <h4>Lift<ng-container *ngIf="profile.Lifts !== 1">s</ng-container></h4>
+        </div>
+        <div class="column1">
+          <h1>{{ profile.MountainsVisited }}</h1>
+          <h4>Mountain<ng-container *ngIf="profile.MountainsVisited !== 1">s</ng-container></h4>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- <h2>My Pools</h2>
+
+
+
+  <!-- <div class="pools-header">
+    <h2>My Pools</h2>
+    <div class="pools-action">
+      <a mat-raised-button color="accent" [routerLink]="['/create']">CREATE POOL</a>
+      <a mat-raised-button color="accent" [routerLink]="['/join']">JOIN POOL</a>
+    </div>
+  </div>
 
   <table mat-table matSort [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
     <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
       <td mat-cell *matCellDef="let element">
         <ng-container *ngIf="column === 'pool'">
           {{element[column] | currency:'USD':'symbol'}}
@@ -57,17 +74,4 @@
     </tr>
     <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="pool-detail-row"></tr>
   </table> -->
-
-  <div class="row profile">
-    <div class="column1">
-      <img src="https://epicmix.com/{{ profile.ProfileImage }}" alt="" class="profile-picture" *ngIf="profile.ProfileImage">
-    </div>
-    <div class="column2">
-      <h1>Welcome {{ profile.Name }}</h1>
-
-      <!-- <img src="http://epicmix.com/{{ profileData.MostVisitedResortIcon }}" alt="">
-      <h3>Most Visited Mountain</h3> -->
-    </div>
-  </div>
-
 </div>
