@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="wrapper leaderboards">
   <h1 class="text-center">2018 - 2019 Season</h1>
-  <small class="text-center">Ranked by: <select [(ngModel)]="rankedBy" (change)="rankChange()">
+  <p class="text-center">Ranked by: <select [(ngModel)]="rankedBy" (change)="rankChange()">
     <option value="VerticalFeet">Vertical</option>
     <option value="DaysOnMountain">Days</option>
     <option value="Lifts">Lifts</option>
     <option value="MountainsVisited">Mountains</option>
-  </select></small>
+  </select></p>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="PLAYERS">
       <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="{{rankedBy}}" matSortDirection="desc">
@@ -19,7 +19,7 @@
 
         <ng-container matColumnDef="Name">
           <th mat-header-cell *matHeaderCellDef>name</th>
-          <td mat-cell *matCellDef="let player">
+          <td mat-cell *matCellDef="let player" class="name">
             <a href="https://www.epicmix.com/user-profile.aspx?ProfileId={{player.ProfileId}}" target="_blank">
               <img src="https://www.epicmix.com/{{player.ProfileImage}}" alt="">{{player.Name}}
             </a>
@@ -42,7 +42,7 @@
         </ng-container>
 
         <ng-container matColumnDef="MountainsVisited">
-          <th mat-header-cell *matHeaderCellDef>mountains</th>
+          <th mat-header-cell *matHeaderCellDef><span class="mobile-text">mtns</span><span class="desktop-text">mountains</span></th>
           <td mat-cell *matCellDef="let player"> {{player.MountainsVisited}} </td>
         </ng-container>
 
@@ -105,4 +105,5 @@
       </table>
     </mat-tab>
   </mat-tab-group>
+  <small><i>Updated Daily at 6 P.M. MST</i></small>
 </div>

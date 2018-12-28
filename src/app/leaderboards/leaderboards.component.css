@@ -2,6 +2,16 @@ h1 {
   margin-bottom: 20px;
 }
 
+small {
+  margin-top: 10px;
+  text-align: right;
+  display: block;
+}
+
+td, th {
+  text-align: center !important;
+}
+
 td img {
   border-radius: 50%;
   height: 30px;
@@ -9,11 +19,44 @@ td img {
   margin-right: 10px;
 }
 
-small {
-  display: block;
-  margin-top: 10px;
+select, p {
+  font-size: 16px;
 }
 
 td a {
   color: black;
+}
+
+.mobile-text {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  small {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  img {
+    display: block;
+    margin: auto !important;
+  }
+
+  .name {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .mobile-text {
+    display: block;
+  }
+
+  .desktop-text {
+    display: none;
+  }
 }
