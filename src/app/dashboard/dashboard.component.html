@@ -12,19 +12,19 @@
 
       <div class="row season">
         <div class="column1">
-          <h1>{{ profile.VerticalFeet }}</h1>
+          <h1>{{ profile.VerticalFeet | number:'1.' }}</h1>
           <h4>Vertical</h4>
         </div>
         <div class="column1">
-          <h1>{{ profile.DaysOnMountain }}</h1>
+          <h1>{{ profile.DaysOnMountain | number:'1.' }}</h1>
           <h4>Day<ng-container *ngIf="profile.DaysOnMountain !== 1">s</ng-container></h4>
         </div>
         <div class="column1">
-          <h1>{{ profile.Lifts }}</h1>
+          <h1>{{ profile.Lifts | number:'1.' }}</h1>
           <h4>Lift<ng-container *ngIf="profile.Lifts !== 1">s</ng-container></h4>
         </div>
         <div class="column1">
-          <h1>{{ profile.MountainsVisited }}</h1>
+          <h1>{{ profile.MountainsVisited | number:'1.' }}</h1>
           <h4>Mountain<ng-container *ngIf="profile.MountainsVisited !== 1">s</ng-container></h4>
         </div>
       </div>
