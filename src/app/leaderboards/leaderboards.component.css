@@ -8,6 +8,14 @@ small {
   display: block;
 }
 
+.fa-snowflake {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: block;
+  font-size: 40px;
+  text-align: center;
+}
+
 td, th {
   text-align: center !important;
 }

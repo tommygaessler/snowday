@@ -18,7 +18,8 @@ import {
   MatTableModule,
   MatSortModule,
   MatSidenavModule,
-  MatTabsModule
+  MatTabsModule,
+  MatChipsModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -57,6 +58,7 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
     MatSortModule,
     MatSidenavModule,
     MatTabsModule,
+    MatChipsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

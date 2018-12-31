@@ -8,23 +8,35 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Pool Name</mat-label>
-      <input matInput placeholder="My Work Pool" [formControl]="createPoolForm.controls['name']">
+      <input matInput placeholder="My Work Pool" [formControl]="createPoolForm.controls['name']" autocomplete="off">
       <mat-hint>Name will be public and must be unique</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Pool Buy In</mat-label>
-      <input matInput placeholder="5" [formControl]="createPoolForm.controls['buyin']">
+      <input matInput placeholder="5" [formControl]="createPoolForm.controls['buyin']" autocomplete="off" onDrag="return false" onDrop="return false" onPaste="return false">
       <mat-hint>Amount everyone invited adds to the pool</mat-hint>
     </mat-form-field>
 
+    <p>Invite Players (You can add more later)</p>
+
     <mat-form-field appearance="outline">
-      <mat-label>Invite Members</mat-label>
-      <input matInput placeholder="tommy@skiride.com">
-      <mat-hint>More Members = More Winnings (you can invite them later)</mat-hint>
+      <mat-label>Player Emails</mat-label>
+      <mat-chip-list #emailChipList>
+        <mat-chip *ngFor="let email of emails" [selectable]="selectable"
+                  (removed)="removeEmail(email)">
+          {{email.email}}
+          <i class="fal fa-times-circle" matChipRemove></i>
+        </mat-chip>
+        <input [matChipInputFor]="emailChipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="addEmail($event)" matInput (keydown.space)="$event.preventDefault()" placeholder="tommy@skiride.com" [ngClass]="{'invalidEmail': invalidEmail === true }" [(ngModel)]="emailInput" [ngModelOptions]="{standalone: true}" autocomplete="off">
+      </mat-chip-list>
+      <mat-hint>Press comma or enter to add an email</mat-hint>
     </mat-form-field>
 
-    <button mat-flat-button color="primary" [disabled]="createPoolForm.invalid || createPoolForm.value.buyin == 0">Create Pool <ng-container *ngIf="createPoolForm.value.buyin > 0">and Add {{ createPoolForm.value.buyin | currency:'USD':'symbol' }}</ng-container></button>
+    <button mat-flat-button color="primary" [disabled]="createPoolForm.invalid || createPoolForm.value.buyin == 0 || emailInput !== ''">CREATE POOL <ng-container *ngIf="createPoolForm.value.buyin > 0">AND ADD {{ createPoolForm.value.buyin | currency:'USD':'symbol' }}</ng-container></button>
 
   </form>
 

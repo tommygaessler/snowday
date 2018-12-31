@@ -16,19 +16,17 @@
   margin-bottom: 10px;
 }
 
+small {
+  display: block;
+  margin-top: 10px;
+}
+
 .pools-action a {
   margin-left: 10px;
 }
 
 h2.text-center {
   margin-bottom: 20px;
-}
-
-.fa-snowflake.fa-spin {
-  font-size: 50px;
-  text-align: center;
-  margin-top: 50vh;
-  display: block;
 }
 
 tr.pool-detail-row {
@@ -59,7 +57,11 @@ tr.pool-row:not(.pool-expanded-row):active {
 }
 
 @media (max-width: 800px) {
-  h2 {
+  h2.text-center {
     margin-top: 40px;
+  }
+
+  .season h4 {
+    margin-bottom: 10px;
   }
 }

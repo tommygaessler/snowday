@@ -1,5 +1,3 @@
-<i class="fal fa-snowflake fa-spin" *ngIf="!profile"></i>
-
 <div *ngIf="profile" class="wrapper">
 
   <div class="row">
@@ -34,11 +32,11 @@
 
 
 
-  <!-- <div class="pools-header">
+  <div class="pools-header">
     <h2>My Pools</h2>
     <div class="pools-action">
-      <a mat-raised-button color="accent" [routerLink]="['/create']">CREATE POOL</a>
-      <a mat-raised-button color="accent" [routerLink]="['/join']">JOIN POOL</a>
+      <a mat-raised-button color="accent" [routerLink]="['/create']" disabled>CREATE POOL</a>
+      <a mat-raised-button color="accent" [routerLink]="['/join']" disabled>JOIN POOL</a>
     </div>
   </div>
 
@@ -73,5 +71,6 @@
         (click)="expandedPool = element">
     </tr>
     <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="pool-detail-row"></tr>
-  </table> -->
+  </table>
+  <small><i>Coming Soon</i></small>
 </div>

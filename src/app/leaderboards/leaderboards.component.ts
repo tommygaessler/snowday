@@ -34,6 +34,7 @@ const POOL_DATA: Pool[] = [
 export class LeaderboardsComponent implements OnInit {
 
   rankedBy: string = 'VerticalFeet';
+  loading: boolean = true;
 
   playerDisplayedColumns: string[] = ['rank', 'Name', 'VerticalFeet', 'DaysOnMountain', 'Lifts', 'MountainsVisited', 'Pools'];
   playerDataSource = new MatTableDataSource();
@@ -55,8 +56,10 @@ export class LeaderboardsComponent implements OnInit {
   getPlayers() {
     this.http.get('https://cdbiahura2.execute-api.us-west-1.amazonaws.com/prod/getPlayers').toPromise().then((data: any) => {
       this.playerDataSource.data = data;
+      this.loading = false;
     }).catch((error) => {
       console.log(error)
+      this.loading = false;
     })
   }
 

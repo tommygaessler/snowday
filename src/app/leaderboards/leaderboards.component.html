@@ -8,7 +8,10 @@
   </select></p>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="PLAYERS">
-      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="{{rankedBy}}" matSortDirection="desc">
+
+      <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
+
+      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="{{rankedBy}}" matSortDirection="desc" *ngIf="!loading">
 
         <ng-container matColumnDef="rank">
           <th mat-header-cell *matHeaderCellDef>rank</th>

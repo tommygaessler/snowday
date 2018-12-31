@@ -14,24 +14,7 @@ export interface PeriodicElement {
   data: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    ranking: 1,
-    name: 'Apostrophe Pool',
-    pool: 50,
-    players: 5,
-    data: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    ranking: 1,
-    name: 'Ski Squad',
-    pool: 100,
-    players: 10,
-    data: `Helium is a chemical element with symbol He and atomic number 2. It is a
-        colorless, odorless, tasteless, non-toxic, inert, monatomic gas, the first in the noble gas
-        group in the periodic table. Its boiling point is the lowest among all the elements.`
-  },
-]
+const ELEMENT_DATA: PeriodicElement[] = []
 
 @Component({
   selector: 'app-dashboard',
