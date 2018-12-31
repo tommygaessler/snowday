@@ -65,3 +65,30 @@ tr.pool-row:not(.pool-expanded-row):active {
     margin-bottom: 10px;
   }
 }
+
+@media (max-width: 390px) {
+  .pools-header {
+    display: block;
+  }
+
+  .pools-header h2 {
+    margin-bottom: 20px;
+  }
+
+  .pools-action a {
+    flex: 1;
+    margin: 0;
+  }
+
+  .pools-action a:last-child {
+    margin-left: 5px;
+  }
+
+  .pools-action a:first-child {
+    margin-right: 5px;
+  }
+
+  .pools-action {
+    display: flex;
+  }
+}

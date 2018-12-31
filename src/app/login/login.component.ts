@@ -35,8 +35,6 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password,
       remember: false
     }).toPromise().then((data: any) => {
-      console.log(data)
-
       if(data.statusCode === 200) {
         // figure out how to handle sessions
         // this.authService.setCookie(this.response['session_cookie']);
