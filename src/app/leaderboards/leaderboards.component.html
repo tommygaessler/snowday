@@ -11,7 +11,7 @@
 
       <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
 
-      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="{{rankedBy}}" matSortDirection="desc" *ngIf="!loading">
+      <table mat-table [dataSource]="playerDataSource" matSort matSortDisableClear matSortActive="{{rankedBy}}" matSortDirection="desc" [hidden]="loading">
 
         <ng-container matColumnDef="rank">
           <th mat-header-cell *matHeaderCellDef>rank</th>
