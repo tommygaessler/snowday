@@ -16,7 +16,7 @@ export class JoinComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    // get pools and prefill list
   }
 
   join() {

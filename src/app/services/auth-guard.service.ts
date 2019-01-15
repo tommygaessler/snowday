@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public authService: AuthService) { }
 
   canActivate() {
-    if(localStorage.getItem('cookie')) {
+    if(this.authService.getProfile()) {
       return true;
     } else {
       this.router.navigate(['/']);

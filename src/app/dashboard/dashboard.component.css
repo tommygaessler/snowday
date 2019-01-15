@@ -9,6 +9,14 @@
   vertical-align: middle;
 }
 
+.fa-snowflake {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: block;
+  font-size: 40px;
+  text-align: center;
+}
+
 .pools-header {
   display: flex;
   align-items: center;
@@ -56,6 +64,10 @@ tr.pool-row:not(.pool-expanded-row):active {
   padding: 16px;
 }
 
+.mobile-text {
+  display: none;
+}
+
 @media (max-width: 800px) {
   h2.text-center {
     margin-top: 40px;
@@ -63,6 +75,16 @@ tr.pool-row:not(.pool-expanded-row):active {
 
   .season h4 {
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .mobile-text {
+    display: block;
+  }
+
+  .desktop-text {
+    display: none;
   }
 }
 

@@ -4,7 +4,9 @@
 
   <h2>Create Pool</h2>
 
-  <form (ngOnSubmit)="buyin()">
+  <h3 *ngIf="error">{{ error }}</h3>
+
+  <form (ngSubmit)="buyin()">
 
     <mat-form-field appearance="outline">
       <mat-label>Pool Name</mat-label>
@@ -36,7 +38,12 @@
       <mat-hint>Press comma or enter to add an email</mat-hint>
     </mat-form-field>
 
-    <button mat-flat-button color="primary" [disabled]="createPoolForm.invalid || createPoolForm.value.buyin == 0 || emailInput !== ''">CREATE POOL <ng-container *ngIf="createPoolForm.value.buyin > 0">AND ADD {{ createPoolForm.value.buyin | currency:'USD':'symbol' }}</ng-container></button>
+    <button mat-flat-button color="primary" [disabled]="createPoolForm.invalid || createPoolForm.value.buyin == 0 || emailInput !== '' || loading">
+      <ng-container *ngIf="!loading">
+        CREATE POOL <ng-container *ngIf="createPoolForm.value.buyin > 0">AND ADD {{ createPoolForm.value.buyin | currency:'USD':'symbol' }}</ng-container>
+      </ng-container>
+      <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
+    </button>
 
   </form>
 
