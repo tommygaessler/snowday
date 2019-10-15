@@ -36,7 +36,7 @@ export class LeaderboardsComponent implements OnInit {
   rankedBy: string = 'VerticalFeet';
   loading: boolean = true;
 
-  playerDisplayedColumns: string[] = ['rank', 'Name', 'VerticalFeet', 'DaysOnMountain', 'Lifts', 'MountainsVisited', 'Pools'];
+  playerDisplayedColumns: string[] = ['rank', 'Name', 'VerticalFeet', 'DaysOnMountain', 'Lifts', 'MountainsVisited'];
   playerDataSource = new MatTableDataSource();
 
   poolDisplayedColumns: string[] = ['rank', 'name', 'pool', 'vertical', 'days', 'lifts', 'mountains', 'players'];

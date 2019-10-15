@@ -21,6 +21,16 @@
   text-align: center;
 }
 
+.background-image h2 {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.background-image h3 {
+  margin-top: 20px;
+}
+
 .background-image p {
   text-align: center;
   margin-left: 50px;

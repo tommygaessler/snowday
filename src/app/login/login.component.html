@@ -13,7 +13,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
       <input matInput type="password" [formControl]="loginForm.controls['password']">
-      <mat-hint>We never store your login credentials.</mat-hint>
+      <mat-hint>We never store your password.</mat-hint>
     </mat-form-field>
 
     <h3 *ngIf="error">{{ error }}</h3>

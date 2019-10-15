@@ -30,16 +30,16 @@
   </div>
 
   <div class="pools-header">
-    <h2>My Pools</h2>
+    <h2>My Team</h2>
     <div class="pools-action">
-      <a mat-raised-button color="accent" [routerLink]="['/create']" disabled>CREATE POOL</a>
-      <a mat-raised-button color="accent" [routerLink]="['/join']" disabled>JOIN POOL</a>
+      <a mat-raised-button color="accent" [routerLink]="['/create']" disabled>CREATE TEAM</a>
+      <a mat-raised-button color="accent" [routerLink]="['/join']" disabled>JOIN TEAM</a>
     </div>
   </div>
 
   <i class="fal fa-snowflake fa-spin" *ngIf="loading"></i>
 
-  <table mat-table [dataSource]="dataSource" [hidden]="loading">
+  <table mat-table [dataSource]="dataSource" [hidden]="true">
 
     <ng-container matColumnDef="Name">
       <th mat-header-cell *matHeaderCellDef>name</th>

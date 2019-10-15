@@ -1,5 +1,5 @@
 <div class="wrapper leaderboards">
-  <h1 class="text-center">2018 - 2019 Season</h1>
+  <h1 class="text-center">2019 - 2020 Season</h1>
   <p class="text-center">Ranked by: <select [(ngModel)]="rankedBy" (change)="rankChange()">
     <option value="VerticalFeet">Vertical</option>
     <option value="DaysOnMountain">Days</option>
@@ -60,19 +60,19 @@
           </td>
         </ng-container>
 
-        <!-- link to pools -->
-        <ng-container matColumnDef="Pools">
+        <!-- link to squads -->
+        <!-- <ng-container matColumnDef="Pools">
           <th mat-header-cell *matHeaderCellDef>pools</th>
           <td mat-cell *matCellDef="let player">
             {{player.Pools | number:'1.'}}
           </td>
-        </ng-container>
+        </ng-container> -->
 
         <tr mat-header-row *matHeaderRowDef="playerDisplayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: playerDisplayedColumns;"></tr>
       </table>
     </mat-tab>
-    <mat-tab label="POOLS" disabled>
+    <mat-tab label="TEAMS (coming soon)" disabled>
       <table mat-table [dataSource]="poolDataSource" matSort>
 
         <ng-container matColumnDef="rank">
