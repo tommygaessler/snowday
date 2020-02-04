@@ -33,15 +33,15 @@ export class DashboardComponent implements OnInit {
 
   getData() {
     this.profile = this.authService.getProfile();
-    this.http.post('https://cdbiahura2.execute-api.us-west-1.amazonaws.com/prod/getPlayerPools', {
-      ProfileId: this.profile.ProfileId
-    }).toPromise().then((data: any) => {
-      this.dataSource.data = data;
+    // this.http.post('https://cdbiahura2.execute-api.us-west-1.amazonaws.com/prod/getPlayerPools', {
+    //   ProfileId: this.profile.ProfileId
+    // }).toPromise().then((data: any) => {
+      // this.dataSource.data = data;
       this.loading = false;
-    }).catch((error) => {
-      console.log(error);
-      this.loading = false;
-    });
+    // }).catch((error) => {
+    //   console.log(error);
+    //   this.loading = false;
+    // });
   }
 
   logout() {

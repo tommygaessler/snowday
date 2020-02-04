@@ -36,10 +36,6 @@ export class LoginComponent implements OnInit {
       remember: false
     }).toPromise().then((data: any) => {
       if(data.statusCode === 200) {
-        console.log(data)
-        // figure out how to handle sessions
-        // this.authService.setCookie(this.response['session_cookie']);
-        // put profileId in session, how secure is this?
         this.authService.setProfile(data.body);
         this.router.navigate(['/dashboard']);
       } else {
